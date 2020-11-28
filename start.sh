@@ -1,0 +1,1 @@
+gunicorn main:app -b $HOST:$PORT -w 1
