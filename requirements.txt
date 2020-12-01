@@ -1,2 +1,4 @@
-Flask
 gunicorn
+Flask
+flask_sqlalchemy
+python-dotenv

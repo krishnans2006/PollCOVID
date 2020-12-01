@@ -1,12 +1,159 @@
-{% extends "base.html" %} {% block title %}{% endblock title %} {% block css
-%}{% endblock css %} {% block content %}
-<h1>Covid-19 Safety</h1>
-<p>
-  Do you ever wonder if Coronavirus will ever end? Well, we don't know yet.
-  Hopefully it will but in the meantime, we should use as many safety measures
-  available right now as we can. That's why we are here, to provide you with
-  honest feedback polled from other users like you! We will provide you with the
-  safest places to go to during these times and the most dangerous places. 
-  You can recieve or give feedback on various stores around the globe. Enjoy!
-</p>
+{% extends "base.html" %} {% block title %}{{address}} - Poll COVID{% endblock
+title %} {% block css %} {% endblock css %} {% block content %}
+<h1>{{address}}</h1>
+<div class="card-deck">
+    {% if distancing > 8.5 or distancing == None %}
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h4 class="card-text">
+          Social Distancing <i class="fas fa-people-arrows"></i>
+        </h4>
+        <h2 class="card-title" style="display: inline;">{{distancing}}</h2>
+        <h6 class="card-text" style="display: inline;">{{distancing_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="distancing"
+              >Rate the Level of Social Distancing Here:</label
+            > 
+            <input
+              type="range"
+              class="form-control-range"
+              id="distancing"
+              name="distancing"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% else %}
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h4 class="card-text">
+          Social Distancing <i class="fas fa-people-arrows"></i>
+        </h4>
+        <h2 class="card-title" style="display: inline;">{{distancing}}</h2>
+        <h6 class="card-text" style="display: inline;">{{distancing_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="distancing"
+              >Rate the Level of Social Distancing Here:</label
+            >
+            <input
+              type="range"
+              class="form-control-range"
+              id="distancing"
+              name="distancing"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+  {% if mask > 8.5 or mask == None %}
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h4 class="card-text">
+          Wearing Masks <i class="fas fa-head-side-mask"></i>
+        </h4>
+        <h2 class="card-title" style="display: inline;">{{mask}}</h2>
+        <h6 class="card-text" style="display: inline;">{{mask_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="mask">Rate the Level of Wearing Masks Here:</label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="mask"
+              name="mask"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% else %}
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h4 class="card-text">
+          Wearing Masks <i class="fas fa-head-side-mask"></i>
+        </h4>
+        <h2 class="card-title" style="display: inline;">{{mask}}</h2>
+        <h6 class="card-text" style="display: inline;">{{mask_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="mask">Rate the Level of Wearing Masks Here:</label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="mask"
+              name="mask"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+  {% if crowd > 8.5 or crowd == None %}
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h4 class="card-text">Crowd Level <i class="fas fa-users"></i></h4>
+        <h2 class="card-title" style="display: inline;">{{crowd}}</h2>
+        <h6 class="card-text" style="display: inline;">{{crowd_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="crowd">Rate the Crowd Level Here:</label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="crowd"
+              name="crowd"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% else %}
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h4 class="card-text">Crowd Level <i class="fas fa-users"></i></h4>
+        <h2 class="card-title" style="display: inline;">{{crowd}}</h2>
+        <h6 class="card-text" style="display: inline;">{{crowd_cnt}} Reviews</h5>
+        <form onkeydown="return event.key != 'Enter';" method="POST">
+          <div class="form-group">
+            <label for="crowd">Rate the Crowd Level Here:</label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="crowd"
+              name="crowd"
+              min="1"
+              max="10"
+              value="8"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+</div>
 {% endblock content %} {% block script %} {% endblock script %}
